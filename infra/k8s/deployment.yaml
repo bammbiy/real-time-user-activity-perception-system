@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uaps
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: uaps
+  template:
+    metadata:
+      labels:
+        app: uaps
+    spec:
+      containers:
+      - name: backend
+        image: uaps-backend
+        ports:
+        - containerPort: 8000
